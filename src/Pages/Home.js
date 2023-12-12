@@ -90,12 +90,12 @@ const Home = () => {
         <div>
           <h1 className="home_title">
             "Empowering Banks and Financial Institutions with Cutting-Edge 
-            Enterprise-Grade Web3 Solutions for Seamless Operations."
+            Enterprise-Grade Solutions for Seamless Operations."
           </h1>
           <div className="btn-section">
             <img src={star} alt="" className="home_star_img" />
             <div className="btn-container">
-              <Button className="btn-container_first-btn">White Paper</Button>
+              {/* <Button className="btn-container_first-btn">White Paper</Button> */}
               {/* <Button className="btn-container_second-btn">Buy Token</Button> */}
             </div>
           </div>
