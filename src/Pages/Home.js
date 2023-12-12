@@ -13,11 +13,11 @@ import {
 } from "../assets/images";
 
 const featureArray = [
-  {
-    title: "Cross-Border Instant Payment Settlements",
-    image: feature1,
-    desc: "Seamlessly execute cross-border transactions with unprecedented speed and efficiency...",
-  },
+  // {
+  //   title: "Cross-Border Instant Payment Settlements",
+  //   image: feature1,
+  //   desc: "Seamlessly execute cross-border transactions with unprecedented speed and efficiency...",
+  // },
   {
     title: "Enterprise-Grade Web3 Solutions",
     image: feature2,
@@ -89,15 +89,14 @@ const Home = () => {
         <img src={round1} alt="" className="home_img left" />
         <div>
           <h1 className="home_title">
-            "Empowering Banks and Financial Institutions with Seamless
-            Cross-Border Instant Payment Settlements and Cutting-Edge
-            Enterprise-Grade Web3 Solutions"
+            "Empowering Banks and Financial Institutions with Cutting-Edge 
+            Enterprise-Grade Web3 Solutions for Seamless Operations."
           </h1>
           <div className="btn-section">
             <img src={star} alt="" className="home_star_img" />
             <div className="btn-container">
               <Button className="btn-container_first-btn">White Paper</Button>
-              <Button className="btn-container_second-btn">Buy Token</Button>
+              {/* <Button className="btn-container_second-btn">Buy Token</Button> */}
             </div>
           </div>
         </div>
@@ -113,12 +112,9 @@ const Home = () => {
             TradeFinTech Powered By <span className="sub-text"> XDC </span>
           </h1>
           <p className="aboutus-desc">
-            Welcome to our innovative platform dedicated to revolutionizing the
-            way banks and financial institutions conduct transactions across
-            borders. At Tradefinetch, we specialize in providing the latest
-            advancements in technology to drive secure and lightning-fast
-            instant payment settlements, while also offering robust
-            enterprise-level Web3 solutions.
+          Welcome to our innovative platform dedicated on transforming global services for 
+          banks and financial institutions. At Tradefinetch, we specialize in providing the 
+          latest advancements in technology by offering robust enterprise-level Web3 solutions.
           </p>
           <Button className="aboutus-btn">Read More {">>"}</Button>
         </div>
@@ -136,12 +132,12 @@ const Home = () => {
       <div id="commitment" className="commitment-section">
         <h1 className="commitment-title">Our Commitment</h1>
         <p className="commitment-desc">
-          At the heart of our mission lies the commitment to empower banks and
-          financial institutions with the tools they need to thrive in today's
-          interconnected global economy. We understand the challenges faced by
-          these entities in navigating cross-border transactions and emerging
-          technologies. Therefore, we have developed a comprehensive suite of
-          services that streamline and enhance every step of the process.
+        At the heart of our mission lies the commitment to empower
+        banks and financial institutions with the tools they need to
+        thrive in today's interconnected global economy. We understand 
+        the challenges faced by these entities in everyday business and emerging
+        technologies. Therefore, we have developed a comprehensive suite of services that 
+        streamline and enhance business operations.
         </p>
         <Button className="commitment-btn">Read More {">>"}</Button>
       </div>
@@ -254,22 +250,22 @@ const Home = () => {
               placeholder="Enter Your Email"
             />
           </div>
-          <div className="form-control">
+          {/* <div className="form-control">
             <p>Investment capacity in FXD</p>
             <input
               type="text"
               className="input"
               placeholder="Enter Your Answer"
             />
-          </div>
-          <div className="form-control">
+          </div> */}
+          {/* <div className="form-control">
             <p>XDC addess to whitelist to allow minting of FXD</p>
             <input
               type="text"
               className="input"
               placeholder="Enter Your Answer"
             />
-          </div>
+          </div> */}
           <div className="form-control">
             <p>Comments</p>
             <input
@@ -285,7 +281,7 @@ const Home = () => {
       {/* footer */}
 
       <div className="footer">
-        <p>Copyright@ 2023 TradeFinex. All Rights Reserved.</p>
+        <p>Copyright@ 2023 <a href = "https://www.tradefinex.org/" target="_blank">TradeFinex</a>. All Rights Reserved.</p>
       </div>
     </div>
   );
