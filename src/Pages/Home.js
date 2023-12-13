@@ -89,8 +89,8 @@ const Home = () => {
         <img src={round1} alt="" className="home_img left" />
         <div>
           <h1 className="home_title">
-            "Empowering Banks and Financial Institutions with Cutting-Edge 
-            Enterprise-Grade Solutions for Seamless Operations."
+            "Empowering Banks, Financial Institutions and Enterprises with Cutting-Edge Military-Grade Solutions
+            for Seamless Operations."
           </h1>
           <div className="btn-section">
             <img src={star} alt="" className="home_star_img" />
@@ -112,8 +112,8 @@ const Home = () => {
             TradeFinTech Powered By <span className="sub-text"> XDC </span>
           </h1>
           <p className="aboutus-desc">
-          Welcome to our innovative platform dedicated on transforming global services for 
-          banks and financial institutions. At Tradefinetch, we specialize in providing the 
+          Welcome to our innovative platform dedicated on transforming global services for banks,
+          financial institutions and enterprises. At Tradefinetch, we specialize in providing the
           latest advancements in technology by offering robust enterprise-level Web3 solutions.
           </p>
           <Button className="aboutus-btn">Read More {">>"}</Button>
@@ -132,12 +132,11 @@ const Home = () => {
       <div id="commitment" className="commitment-section">
         <h1 className="commitment-title">Our Commitment</h1>
         <p className="commitment-desc">
-        At the heart of our mission lies the commitment to empower
-        banks and financial institutions with the tools they need to
-        thrive in today's interconnected global economy. We understand 
-        the challenges faced by these entities in everyday business and emerging
-        technologies. Therefore, we have developed a comprehensive suite of services that 
-        streamline and enhance business operations.
+        At the heart of our mission lies the commitment to empower banks,
+        financial institutions and Enterprises with the tools they need to thrive in
+        today's interconnected global economy. We understand the challenges faced by these
+        entities in everyday business and emerging technologies. Therefore, we have developed
+        a comprehensive suite of services that streamline and enhance business operations.
         </p>
         <Button className="commitment-btn">Read More {">>"}</Button>
       </div>
@@ -195,8 +194,8 @@ const Home = () => {
               <div>
                 <p className="faq-title">Global Reach</p>
                 <p className="faq-desc">
-                  We have a deep understanding of the nuances of cross-border
-                  transactions and can help you navigate the complexities.
+                Embracing a world without boundaries, our extensive solutions seamlessly unite technology
+                and the best business practices, empowering enterprises worldwide.
                 </p>
               </div>
             </div>
@@ -281,7 +280,8 @@ const Home = () => {
       {/* footer */}
 
       <div className="footer">
-        <p>Copyright@ 2023 <a href = "https://www.tradefinex.org/" target="_blank">TradeFinex</a>. All Rights Reserved.</p>
+        <p>Copyright@ 2023 <a href = "https://www.tradefinex.org/" target="_blank">TradeFinex</a>. All Rights Reserved.
+        <br></br>Powered by XDC Network<br></br>Office Address: N1002-N1003 Emirates Financial Towers, DIFC, Dubai, UAE</p>
       </div>
     </div>
   );
