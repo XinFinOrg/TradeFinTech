@@ -280,8 +280,7 @@ const Home = () => {
       {/* footer */}
 
       <div className="footer">
-        <p>Copyright@ 2023 <a href = "https://www.tradefinex.org/" target="_blank">TradeFinex</a>. All Rights Reserved.
-        <br></br>Powered by XDC Network<br></br>Office Address: N1002-N1003 Emirates Financial Towers, DIFC, Dubai, UAE</p>
+        <p>Copyright@ 2023 <a href = "https://www.tradefinex.org/" target="_blank">TradeFinex</a>. All Rights Reserved.</p>
       </div>
     </div>
   );
