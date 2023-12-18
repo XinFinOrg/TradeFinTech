@@ -10,14 +10,15 @@ import {
   feature4,
   diary,
   star,
+  bank,
 } from "../assets/images";
 
 const featureArray = [
-  {
-    title: "Cross-Border Instant Payment Settlements",
-    image: feature1,
-    desc: "Seamlessly execute cross-border transactions with unprecedented speed and efficiency...",
-  },
+  // {
+  //   title: "Cross-Border Instant Payment Settlements",
+  //   image: feature1,
+  //   desc: "Seamlessly execute cross-border transactions with unprecedented speed and efficiency...",
+  // },
   {
     title: "Enterprise-Grade Web3 Solutions",
     image: feature2,
@@ -36,6 +37,25 @@ const featureArray = [
 ];
 
 const Home = () => {
+
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   subject: '',
+  //   message: '',
+  // });
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
   return (
     <div>
       {/* Navbar */}
@@ -60,9 +80,9 @@ const Home = () => {
               <Nav.Link href="#home" className="nav-link">
                 Home
               </Nav.Link>
-              <Nav.Link href="#commitment" className="nav-link">
+              {/* <Nav.Link href="#commitment" className="nav-link">
                 Our Commitment
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link href="#features" className="nav-link">
                 Features
               </Nav.Link>
@@ -75,9 +95,9 @@ const Home = () => {
               <Nav.Link href="#contact" className="nav-link">
                 Contact Us
               </Nav.Link>
-              <Button variant="outline-primary" className="nav-btn">
+              {/* <Button variant="outline-primary" className="nav-btn">
                 Join Now
-              </Button>
+              </Button> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -89,15 +109,13 @@ const Home = () => {
         <img src={round1} alt="" className="home_img left" />
         <div>
           <h1 className="home_title">
-            "Empowering Banks and Financial Institutions with Seamless
-            Cross-Border Instant Payment Settlements and Cutting-Edge
-            Enterprise-Grade Web3 Solutions"
+            "Empowering Banks and Financial Institutions with Cutting-Edge Enterprise-Grade Web3 Solutions for Seamless Operations."
           </h1>
           <div className="btn-section">
             <img src={star} alt="" className="home_star_img" />
             <div className="btn-container">
               <Button className="btn-container_first-btn">White Paper</Button>
-              <Button className="btn-container_second-btn">Buy Token</Button>
+              {/* <Button className="btn-container_second-btn">Buy Token</Button> */}
             </div>
           </div>
         </div>
@@ -113,18 +131,13 @@ const Home = () => {
             TradeFinTech Powered By <span className="sub-text"> XDC </span>
           </h1>
           <p className="aboutus-desc">
-            Welcome to our innovative platform dedicated to revolutionizing the
-            way banks and financial institutions conduct transactions across
-            borders. At Tradefinetch, we specialize in providing the latest
-            advancements in technology to drive secure and lightning-fast
-            instant payment settlements, while also offering robust
-            enterprise-level Web3 solutions.
+          "Welcome to our innovative platform dedicated on transforming global services for banks and financial institutions. At Tradefinetch, we specialize in providing the latest advancements in technology by offering robust enterprise-level Web3 solutions.
           </p>
-          <Button className="aboutus-btn">Read More {">>"}</Button>
+          {/* <Button className="aboutus-btn">Read More {">>"}</Button> */}
         </div>
         <div className="aboutus_right-container">
           <div className="logo-overlay-one">
-            <div className="logo-overlay-two">
+            <div className="logo-overlay-two">  
               <img src={logo} alt="" />
             </div>
           </div>
@@ -133,18 +146,13 @@ const Home = () => {
 
       {/* Our Commitment */}
 
-      <div id="commitment" className="commitment-section">
+      {/* <div id="commitment" className="commitment-section">
         <h1 className="commitment-title">Our Commitment</h1>
         <p className="commitment-desc">
-          At the heart of our mission lies the commitment to empower banks and
-          financial institutions with the tools they need to thrive in today's
-          interconnected global economy. We understand the challenges faced by
-          these entities in navigating cross-border transactions and emerging
-          technologies. Therefore, we have developed a comprehensive suite of
-          services that streamline and enhance every step of the process.
+        At the heart of our mission lies the commitment to empower banks and financial institutions with the tools they need to thrive in today's interconnected global economy. We understand the challenges faced by these entities in everyday business and emerging technologies. Therefore, we have developed a comprehensive suite of services that streamline and enhance business operations.
         </p>
         <Button className="commitment-btn">Read More {">>"}</Button>
-      </div>
+      </div> */}
 
       {/* features */}
 
@@ -174,7 +182,7 @@ const Home = () => {
           <div className="chooseus-left">
             <div className="logo-overlay-one">
               <div className="logo-overlay-two">
-                <img src={logo} alt="" />
+              <img src={bank} alt="" />
               </div>
             </div>
           </div>
@@ -235,6 +243,9 @@ const Home = () => {
                 type="text"
                 className="input"
                 placeholder="your full name here"
+                // name="name"
+                // value={formData.name}
+                // onChange={handleChange}
               />
             </div>
             <div className="form-control">
@@ -252,30 +263,35 @@ const Home = () => {
               type="text"
               className="input"
               placeholder="Enter Your Email"
+              // name="email"
+              // value={formData.email}
+              // onChange={handleChange}
             />
           </div>
-          <div className="form-control">
+          {/* <div className="form-control">
             <p>Investment capacity in FXD</p>
             <input
               type="text"
               className="input"
               placeholder="Enter Your Answer"
             />
-          </div>
-          <div className="form-control">
+          </div> */}
+          {/* <div className="form-control">
             <p>XDC addess to whitelist to allow minting of FXD</p>
             <input
               type="text"
               className="input"
               placeholder="Enter Your Answer"
             />
-          </div>
+          </div> */}
           <div className="form-control">
             <p>Comments</p>
             <input
               type="text"
               className="input"
               placeholder="Enter Your Answer"
+              // value={formData.message}
+              // onChange={handleChange}
             />
           </div>
           <Button className="submit-btn">Submit</Button>
@@ -285,10 +301,11 @@ const Home = () => {
       {/* footer */}
 
       <div className="footer">
-        <p>Copyright@ 2023 TradeFinex. All Rights Reserved.</p>
+        <p>Copyright@ 2023 <a href=" TradeFinex.org">TradeFinex</a>. All Rights Reserved.</p>
       </div>
     </div>
   );
-};
+  };
+
 
 export default Home;
