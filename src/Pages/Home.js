@@ -207,8 +207,8 @@ const Home = () => {
               <div>
                 <p className="faq-title">Global Reach</p>
                 <p className="faq-desc">
-                  We have a deep understanding of the nuances of cross-border
-                  transactions and can help you navigate the complexities.
+                Embracing a world without boundaries, our extensive solutions seamlessly unite technology
+                and the best business practices, empowering enterprises worldwide.
                 </p>
               </div>
             </div>
