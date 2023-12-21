@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState}from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import axios from 'axios';
 import {
   logo,
   round1,
@@ -38,23 +39,49 @@ const featureArray = [
 
 const Home = () => {
 
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   email: '',
-  //   subject: '',
-  //   message: '',
-  // });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    number: '',
+    message: '',
+  });
 
+  // let name , value;
   // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
+  //   name = e.target.name ;
+  //   value = e.target.value;
+  //   console.log(value); 
+    
+  //   setFormData({ ...formData, [name]: value})
   // };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Make an HTTP POST request to the server
+      const response = await axios.post('http://localhost:4000/submit', formData);
+
+      // Handle the response (optional)
+      console.log(response.data);
+
+       // Optionally, reset the form data after successful submission
+       setFormData({
+        name: '',
+        email: '',
+        number: '',
+        message: '',
+      });
+    } catch (error) {
+      // Handle errors
+      console.error('Error submitting form:', error);
+    }
+  };
 
   return (
     <div>
@@ -235,17 +262,17 @@ const Home = () => {
         <h1 className="contact-title">
           Contact <span className="sub-text">Us</span>
         </h1>
-        <form className="form-container">
+        <form className="form-container" onSubmit={handleSubmit}>
           <div className="form-flex">
             <div className="form-control">
               <p>Full Name</p>
               <input
                 type="text"
+                name="name"
                 className="input"
                 placeholder="your full name here"
-                // name="name"
-                // value={formData.name}
-                // onChange={handleChange}
+                value={formData.name}
+                onChange={handleChange}
               />
             </div>
             <div className="form-control">
@@ -253,7 +280,10 @@ const Home = () => {
               <input
                 type="text"
                 className="input"
+                name="number"
                 placeholder="Enter Your Number"
+                value={formData.number}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -263,12 +293,22 @@ const Home = () => {
               type="text"
               className="input"
               placeholder="Enter Your Email"
-              // name="email"
-              // value={formData.email}
-              // onChange={handleChange}
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
             />
           </div>
-          {/* <div className="form-control">
+          <div className="form-control">
+            <p>Comments</p>
+            <input
+              type="text"
+              className="input"
+              name="message"
+              placeholder="Enter Your Answer"
+              value={formData.message}
+              onChange={handleChange}
+            />
+            {/* <div className="form-control">
             <p>Investment capacity in FXD</p>
             <input
               type="text"
@@ -284,17 +324,8 @@ const Home = () => {
               placeholder="Enter Your Answer"
             />
           </div> */}
-          <div className="form-control">
-            <p>Comments</p>
-            <input
-              type="text"
-              className="input"
-              placeholder="Enter Your Answer"
-              // value={formData.message}
-              // onChange={handleChange}
-            />
           </div>
-          <Button className="submit-btn">Submit</Button>
+          <Button type="button" onClick={handleSubmit} className="submit-btn">Submit</Button>
         </form>
       </div>
 
