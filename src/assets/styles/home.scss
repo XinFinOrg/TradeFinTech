@@ -1,12 +1,27 @@
 /* navbar css */
 
+// .navbar {
+//   .landing-container {
+//     border-bottom: 1px solid #dbdbdb;
+//     padding: 2rem 0;
+//   }
+// }
+
 .navbar {
+  position: sticky;
+  top: 0;
+  background-color: white; /* Add your desired background color */
+  z-index: 1000; /* Add a high z-index value to make sure it's above other elements */
+
   .landing-container {
     border-bottom: 1px solid #dbdbdb;
-    padding: 2rem 0;
+    padding: 1.2rem 0;
   }
 }
+
 .navbar-container {
+    position: relative;
+  z-index: 1000;
   flex-basis: 0%;
   flex-grow: 0;
   @media screen and (max-width: 991px) {
@@ -172,21 +187,31 @@
   font-size: 18px;
   font-weight: 700;
 }
-.logo-overlay-one {
+#aboutus .logo-overlay-one {
   background-color: var(--primary-blue);
   width: 90%;
   display: flex;
   justify-content: center;
   border-radius: 10px;
-  height: 90%;
+  height:80%;
 }
-.logo-overlay-two {
+ #aboutus .logo-overlay-two {
   border-radius: 10px;
   position: relative;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   width: 90%;
-  height: 100%;
-  top: 10%;
+  height: 90%;
+  top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+#aboutus .logo-overlay-two img {
+  border-radius: 10px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 40%;
+  height: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -245,7 +270,7 @@
 .features-container {
   padding: 3rem 2rem 9rem;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 5rem;
   justify-content: center;
   width: 100%;
@@ -277,6 +302,37 @@
 }
 
 /* why schoose us css */
+
+#choose .logo-overlay-one {
+  background-color: var(--primary-blue);
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  height: 90%;
+}
+ #choose .logo-overlay-two {
+  border-radius: 10px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 80%;
+  height: 100%;
+  top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#choose .logo-overlay-two img {
+  border-radius: 10px;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  top: -10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .choose-section {
   display: flex;
@@ -318,6 +374,7 @@
 }
 .faq {
   display: flex;
+  margin-top: 30px;
 }
 .faq-icon {
   height: 100px;
@@ -404,6 +461,11 @@
   font-size: 22px;
   font-weight: 600;
   margin-top: 2rem;
+  text-decoration: none;
+}
+
+footer a {
+  text-decoration: none;
 }
 
 /* media query */

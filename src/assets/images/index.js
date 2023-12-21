@@ -7,6 +7,7 @@ import feature3 from "./feature3.png";
 import feature4 from "./feature4.png";
 import diary from "./diary.png";
 import star from "./star.png";
+import bank from "./bank.png";
 
 export {
   logo,
@@ -18,4 +19,5 @@ export {
   feature4,
   diary,
   star,
+  bank,
 };

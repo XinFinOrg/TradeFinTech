@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useState}from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import axios from 'axios';
 import {
   logo,
   round1,
@@ -10,6 +11,7 @@ import {
   feature4,
   diary,
   star,
+  bank,
 } from "../assets/images";
 
 const featureArray = [
@@ -36,6 +38,51 @@ const featureArray = [
 ];
 
 const Home = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    number: '',
+    message: '',
+  });
+
+  // let name , value;
+  // const handleChange = (e) => {
+  //   name = e.target.name ;
+  //   value = e.target.value;
+  //   console.log(value); 
+    
+  //   setFormData({ ...formData, [name]: value})
+  // };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Make an HTTP POST request to the server
+      const response = await axios.post('http://localhost:4000/submit', formData);
+
+      // Handle the response (optional)
+      console.log(response.data);
+
+       // Optionally, reset the form data after successful submission
+       setFormData({
+        name: '',
+        email: '',
+        number: '',
+        message: '',
+      });
+    } catch (error) {
+      // Handle errors
+      console.error('Error submitting form:', error);
+    }
+  };
+
   return (
     <div>
       {/* Navbar */}
@@ -60,9 +107,9 @@ const Home = () => {
               <Nav.Link href="#home" className="nav-link">
                 Home
               </Nav.Link>
-              <Nav.Link href="#commitment" className="nav-link">
+              {/* <Nav.Link href="#commitment" className="nav-link">
                 Our Commitment
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link href="#features" className="nav-link">
                 Features
               </Nav.Link>
@@ -75,9 +122,9 @@ const Home = () => {
               <Nav.Link href="#contact" className="nav-link">
                 Contact Us
               </Nav.Link>
-              <Button variant="outline-primary" className="nav-btn">
+              {/* <Button variant="outline-primary" className="nav-btn">
                 Join Now
-              </Button>
+              </Button> */}
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -89,13 +136,12 @@ const Home = () => {
         <img src={round1} alt="" className="home_img left" />
         <div>
           <h1 className="home_title">
-            "Empowering Banks, Financial Institutions and Enterprises with Cutting-Edge Military-Grade Solutions
-            for Seamless Operations."
+            "Empowering Banks and Financial Institutions with Cutting-Edge Enterprise-Grade Web3 Solutions for Seamless Operations."
           </h1>
           <div className="btn-section">
             <img src={star} alt="" className="home_star_img" />
             <div className="btn-container">
-              {/* <Button className="btn-container_first-btn">White Paper</Button> */}
+              <Button className="btn-container_first-btn">White Paper</Button>
               {/* <Button className="btn-container_second-btn">Buy Token</Button> */}
             </div>
           </div>
@@ -112,15 +158,13 @@ const Home = () => {
             TradeFinTech Powered By <span className="sub-text"> XDC </span>
           </h1>
           <p className="aboutus-desc">
-          Welcome to our innovative platform dedicated on transforming global services for banks,
-          financial institutions and enterprises. At Tradefinetch, we specialize in providing the
-          latest advancements in technology by offering robust enterprise-level Web3 solutions.
+          "Welcome to our innovative platform dedicated on transforming global services for banks and financial institutions. At Tradefinetch, we specialize in providing the latest advancements in technology by offering robust enterprise-level Web3 solutions.
           </p>
-          <Button className="aboutus-btn">Read More {">>"}</Button>
+          {/* <Button className="aboutus-btn">Read More {">>"}</Button> */}
         </div>
         <div className="aboutus_right-container">
           <div className="logo-overlay-one">
-            <div className="logo-overlay-two">
+            <div className="logo-overlay-two">  
               <img src={logo} alt="" />
             </div>
           </div>
@@ -129,17 +173,13 @@ const Home = () => {
 
       {/* Our Commitment */}
 
-      <div id="commitment" className="commitment-section">
+      {/* <div id="commitment" className="commitment-section">
         <h1 className="commitment-title">Our Commitment</h1>
         <p className="commitment-desc">
-        At the heart of our mission lies the commitment to empower banks,
-        financial institutions and Enterprises with the tools they need to thrive in
-        today's interconnected global economy. We understand the challenges faced by these
-        entities in everyday business and emerging technologies. Therefore, we have developed
-        a comprehensive suite of services that streamline and enhance business operations.
+        At the heart of our mission lies the commitment to empower banks and financial institutions with the tools they need to thrive in today's interconnected global economy. We understand the challenges faced by these entities in everyday business and emerging technologies. Therefore, we have developed a comprehensive suite of services that streamline and enhance business operations.
         </p>
         <Button className="commitment-btn">Read More {">>"}</Button>
-      </div>
+      </div> */}
 
       {/* features */}
 
@@ -169,7 +209,7 @@ const Home = () => {
           <div className="chooseus-left">
             <div className="logo-overlay-one">
               <div className="logo-overlay-two">
-                <img src={logo} alt="" />
+              <img src={bank} alt="" />
               </div>
             </div>
           </div>
@@ -222,14 +262,17 @@ const Home = () => {
         <h1 className="contact-title">
           Contact <span className="sub-text">Us</span>
         </h1>
-        <form className="form-container">
+        <form className="form-container" onSubmit={handleSubmit}>
           <div className="form-flex">
             <div className="form-control">
               <p>Full Name</p>
               <input
                 type="text"
+                name="name"
                 className="input"
                 placeholder="your full name here"
+                value={formData.name}
+                onChange={handleChange}
               />
             </div>
             <div className="form-control">
@@ -237,7 +280,10 @@ const Home = () => {
               <input
                 type="text"
                 className="input"
+                name="number"
                 placeholder="Enter Your Number"
+                value={formData.number}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -247,9 +293,22 @@ const Home = () => {
               type="text"
               className="input"
               placeholder="Enter Your Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
             />
           </div>
-          {/* <div className="form-control">
+          <div className="form-control">
+            <p>Comments</p>
+            <input
+              type="text"
+              className="input"
+              name="message"
+              placeholder="Enter Your Answer"
+              value={formData.message}
+              onChange={handleChange}
+            />
+            {/* <div className="form-control">
             <p>Investment capacity in FXD</p>
             <input
               type="text"
@@ -265,25 +324,19 @@ const Home = () => {
               placeholder="Enter Your Answer"
             />
           </div> */}
-          <div className="form-control">
-            <p>Comments</p>
-            <input
-              type="text"
-              className="input"
-              placeholder="Enter Your Answer"
-            />
           </div>
-          <Button className="submit-btn">Submit</Button>
+          <Button type="button" onClick={handleSubmit} className="submit-btn">Submit</Button>
         </form>
       </div>
 
       {/* footer */}
 
       <div className="footer">
-        <p>Copyright@ 2023 <a href = "https://www.tradefinex.org/" target="_blank">TradeFinex</a>. All Rights Reserved.</p>
+        <p>Copyright@ 2023 <a href=" TradeFinex.org">TradeFinex</a>. All Rights Reserved.</p>
       </div>
     </div>
   );
-};
+  };
+
 
 export default Home;
