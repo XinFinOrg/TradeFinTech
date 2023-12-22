@@ -8,8 +8,8 @@ import feature4 from "./feature4.png";
 import diary from "./diary.png";
 import star from "./star.png";
 import bank from "./bank.png";
-import bank from "./logo_high.png";
-import bank from "./logo_high_xdc.png";
+import logo_high from "./logo_high.png";
+import logo_high_xdc from "./logo_high_xdc.png";
 
 export {
   logo,
