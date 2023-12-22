@@ -12,6 +12,8 @@ import {
   diary,
   star,
   bank,
+  logo_high,
+  logo_high_xdc,
 } from "../assets/images";
 
 const featureArray = [
