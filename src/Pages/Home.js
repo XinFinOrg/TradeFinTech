@@ -1,6 +1,5 @@
-import React, {useState}from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
-import axios from 'axios';
 import {
   logo,
   round1,
@@ -40,50 +39,44 @@ const featureArray = [
 ];
 
 const Home = () => {
-
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    number: '',
-    message: '',
+    name: "",
+    email: "",
+    number: "",
+    message: "",
   });
 
-  // let name , value;
-  // const handleChange = (e) => {
-  //   name = e.target.name ;
-  //   value = e.target.value;
-  //   console.log(value); 
-    
-  //   setFormData({ ...formData, [name]: value})
-  // };
+  const [submittedData, setSubmittedData] = useState(
+    JSON.parse(localStorage.getItem("submittedData")) || null
+  );
+
+  useEffect(() => {
+    localStorage.setItem("submittedData", JSON.stringify(submittedData));
+  }, [submittedData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  }
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      // Make an HTTP POST request to the server
-      const response = await axios.post('http://localhost:4000/submit', formData);
+    // Handle the form data as needed
+    console.log("Form data submitted:", formData);
 
-      // Handle the response (optional)
-      console.log(response.data);
+    // Update state to display submitted data
+    setSubmittedData(formData);
 
-       // Optionally, reset the form data after successful submission
-       setFormData({
-        name: '',
-        email: '',
-        number: '',
-        message: '',
-      });
-    } catch (error) {
-      // Handle errors
-      console.error('Error submitting form:', error);
-    }
+    // Optionally, reset the form data after submission
+    setFormData({
+      name: "",
+      email: "",
+      number: "",
+      message: "",
+    });
   };
+
 
   return (
     <div>
@@ -260,6 +253,7 @@ const Home = () => {
 
       {/* contact us */}
 
+      {/* contact us */}
       <div id="contact" className="contact-section">
         <h1 className="contact-title">
           Contact <span className="sub-text">Us</span>
@@ -310,25 +304,30 @@ const Home = () => {
               value={formData.message}
               onChange={handleChange}
             />
-            {/* <div className="form-control">
-            <p>Investment capacity in FXD</p>
-            <input
-              type="text"
-              className="input"
-              placeholder="Enter Your Answer"
-            />
-          </div> */}
-          {/* <div className="form-control">
-            <p>XDC addess to whitelist to allow minting of FXD</p>
-            <input
-              type="text"
-              className="input"
-              placeholder="Enter Your Answer"
-            />
-          </div> */}
           </div>
-          <Button type="button" onClick={handleSubmit} className="submit-btn">Submit</Button>
+          <Button type="submit" className="submit-btn">
+            Submit
+          </Button>
         </form>
+
+        {/* Display submitted data */}
+        {submittedData && (
+          <div className="submitted-data">
+            <h2>Submitted Data</h2>
+            <p>
+              <strong>Name:</strong> {submittedData.name}
+            </p>
+            <p>
+              <strong>Email:</strong> {submittedData.email}
+            </p>
+            <p>
+              <strong>Number:</strong> {submittedData.number}
+            </p>
+            <p>
+              <strong>Message:</strong> {submittedData.message}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* footer */}
