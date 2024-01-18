@@ -16,26 +16,26 @@ import {
 } from "../assets/images";
 
 const featureArray = [
-  // {
-  //   title: "Cross-Border Instant Payment Settlements",
-  //   image: feature1,
-  //   desc: "Seamlessly execute cross-border transactions with unprecedented speed and efficiency...",
-  // },
+  {
+    title: "Cross-Border Instant Payment Settlements",
+    image: feature1,
+    desc: "Seamlessly execute cross-border transactions with unprecedented speed and efficiency.",
+  },
   {
     title: "Enterprise-Grade Web3 Solutions",
     image: feature2,
-    desc: "Stay ahead of the curve with our cutting-edge Web3 solutions tailored to the specific needs of banks...",
+    desc: "Stay ahead of the curve with our cutting-edge Web3 solutions tailored to the specific needs of banks.",
   },
   {
     title: "Security and Compliance",
     image: feature3,
-    desc: "We understand the critical importance of security and compliance in the financial sector...",
+    desc: "We understand the critical importance of security and compliance in the financial sector.",
   },
-  {
-    title: "Expert Support",
-    image: feature4,
-    desc: "Our team of dedicated experts is here to provide comprehensive support at every stage...",
-  },
+  // {
+  //   title: "Expert Support",
+  //   image: feature4,
+  //   desc: "Our team of dedicated experts is here to provide comprehensive support at every stage...",
+  // },
 ];
 
 const Home = () => {
@@ -136,7 +136,7 @@ const Home = () => {
           <div className="btn-section">
             <img src={star} alt="" className="home_star_img" />
             <div className="btn-container">
-              <Button className="btn-container_first-btn">White Paper</Button>
+              {/* <Button className="btn-container_first-btn">White Paper</Button> */}
               {/* <Button className="btn-container_second-btn">Buy Token</Button> */}
             </div>
           </div>
@@ -150,10 +150,10 @@ const Home = () => {
         <div className="aboutus_left-container">
           <h1 className="aboutus-title">About Us</h1>
           <h1 className="aboutus-title">
-            TradeFinTech Powered By <span className="sub-text"> XDC </span>
+            TradeFinTech Powered By <span className="sub-text"> XDC Network</span>
           </h1>
           <p className="aboutus-desc">
-          "Welcome to our innovative platform dedicated on transforming global services for banks and financial institutions. At Tradefinetch, we specialize in providing the latest advancements in technology by offering robust enterprise-level Web3 solutions.
+          Welcome to our innovative platform dedicated on transforming global services for banks and financial institutions. At Tradefinetch, we specialize in providing the latest advancements in technology by offering robust enterprise-level Web3 solutions.
           </p>
           {/* <Button className="aboutus-btn">Read More {">>"}</Button> */}
         </div>
@@ -188,7 +188,7 @@ const Home = () => {
               <img src={item.image} alt="" className="feature-img" />
               <h2 className="feature-title">{item.title}</h2>
               <p className="feature-desc">{item.desc}</p>
-              <p className="readmore">Read More</p>
+              {/* <p className="readmore">Read More</p> */}
             </div>
           ))}
         </div>
@@ -198,7 +198,7 @@ const Home = () => {
 
       <div id="choose" className="choose-section">
         <h1 className="choose-title">
-          Why Choose <span className="sub-text">Tradefintech</span>
+          Why Choose <span className="sub-text">TradeFinTech</span>
         </h1>
         <div className="chooseus-container">
           <div className="chooseus-left">
@@ -310,7 +310,7 @@ const Home = () => {
           </Button>
         </form>
 
-        {/* Display submitted data */}
+        {/* Display submitted data
         {submittedData && (
           <div className="submitted-data">
             <h2>Submitted Data</h2>
@@ -327,14 +327,24 @@ const Home = () => {
               <strong>Message:</strong> {submittedData.message}
             </p>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* footer */}
 
-      <div className="footer">
-        <p>Copyright@ 2023 <a href=" TradeFinex.org">TradeFinex</a>. All Rights Reserved.</p>
-      </div>
+<div className="footer">
+  <p className="footer_p">
+    <span>TradeFinTech Ltd</span><br />
+    <span>Address: </span>N1002-N1003 Emirates Financial Towers, DIFC, Dubai, UAE<br />
+    <span>Email ID:</span> <a href="mailto:info@tradefinex.org">info@tradefinex.org</a><br />
+    <span>Telephone:</span>04 394 9900 <br />
+    
+ </p>
+ <p className="copyright">
+    Copyright@ 2023 <a href=" TradeFinex.org">TradeFinex</a>. All Rights Reserved.
+  </p>
+  </div>
+     
     </div>
   );
   };

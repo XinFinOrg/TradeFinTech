@@ -210,8 +210,8 @@
   border-radius: 10px;
   position: relative;
   background-color: rgb(255, 255, 255);
-  width: 40%;
-  height: 22%;
+  width: 37%;
+  height: 19%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -452,20 +452,34 @@
 
 /* footer css */
 
-.footer {
-  display: flex;
-  justify-content: center;
-  background-color: #f7f7f7;
-}
-.footer > p {
-  font-size: 22px;
-  font-weight: 600;
-  margin-top: 2rem;
+.footer_p {
+  
+  font-size: 15px;
+  // font-weight: 600;
+  margin:20px 15px;
+  padding: 20px;
   text-decoration: none;
+  line-height: 1.7;
+}
+
+.copyright {
+  font-size: 18px;
+  padding-left: 40px;
+
+}
+
+.footer_p span {
+font-weight: 600;
+font-size: 17px;
 }
 
 footer a {
   text-decoration: none;
+}
+
+.footer {
+  background-color: #eef2f3;
+
 }
 
 /* media query */
