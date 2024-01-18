@@ -1,6 +1,5 @@
-import React, {useState}from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
-import axios from 'axios';
 import {
   logo,
   round1,
@@ -12,76 +11,72 @@ import {
   diary,
   star,
   bank,
+  logo_high,
+  logo_high_xdc,
 } from "../assets/images";
 
 const featureArray = [
-  // {
-  //   title: "Cross-Border Instant Payment Settlements",
-  //   image: feature1,
-  //   desc: "Seamlessly execute cross-border transactions with unprecedented speed and efficiency...",
-  // },
+  {
+    title: "Cross-Border Instant Payment Settlements",
+    image: feature1,
+    desc: "Seamlessly execute cross-border transactions with unprecedented speed and efficiency.",
+  },
   {
     title: "Enterprise-Grade Web3 Solutions",
     image: feature2,
-    desc: "Stay ahead of the curve with our cutting-edge Web3 solutions tailored to the specific needs of banks...",
+    desc: "Stay ahead of the curve with our cutting-edge Web3 solutions tailored to the specific needs of banks.",
   },
   {
     title: "Security and Compliance",
     image: feature3,
-    desc: "We understand the critical importance of security and compliance in the financial sector...",
+    desc: "We understand the critical importance of security and compliance in the financial sector.",
   },
-  {
-    title: "Expert Support",
-    image: feature4,
-    desc: "Our team of dedicated experts is here to provide comprehensive support at every stage...",
-  },
+  // {
+  //   title: "Expert Support",
+  //   image: feature4,
+  //   desc: "Our team of dedicated experts is here to provide comprehensive support at every stage...",
+  // },
 ];
 
 const Home = () => {
-
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    number: '',
-    message: '',
+    name: "",
+    email: "",
+    number: "",
+    message: "",
   });
 
-  // let name , value;
-  // const handleChange = (e) => {
-  //   name = e.target.name ;
-  //   value = e.target.value;
-  //   console.log(value); 
-    
-  //   setFormData({ ...formData, [name]: value})
-  // };
+  const [submittedData, setSubmittedData] = useState(
+    JSON.parse(localStorage.getItem("submittedData")) || null
+  );
+
+  useEffect(() => {
+    localStorage.setItem("submittedData", JSON.stringify(submittedData));
+  }, [submittedData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  }
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      // Make an HTTP POST request to the server
-      const response = await axios.post('http://localhost:4000/submit', formData);
+    // Handle the form data as needed
+    console.log("Form data submitted:", formData);
 
-      // Handle the response (optional)
-      console.log(response.data);
+    // Update state to display submitted data
+    setSubmittedData(formData);
 
-       // Optionally, reset the form data after successful submission
-       setFormData({
-        name: '',
-        email: '',
-        number: '',
-        message: '',
-      });
-    } catch (error) {
-      // Handle errors
-      console.error('Error submitting form:', error);
-    }
+    // Optionally, reset the form data after submission
+    setFormData({
+      name: "",
+      email: "",
+      number: "",
+      message: "",
+    });
   };
+
 
   return (
     <div>
@@ -141,7 +136,7 @@ const Home = () => {
           <div className="btn-section">
             <img src={star} alt="" className="home_star_img" />
             <div className="btn-container">
-              <Button className="btn-container_first-btn">White Paper</Button>
+              {/* <Button className="btn-container_first-btn">White Paper</Button> */}
               {/* <Button className="btn-container_second-btn">Buy Token</Button> */}
             </div>
           </div>
@@ -155,10 +150,10 @@ const Home = () => {
         <div className="aboutus_left-container">
           <h1 className="aboutus-title">About Us</h1>
           <h1 className="aboutus-title">
-            TradeFinTech Powered By <span className="sub-text"> XDC </span>
+            TradeFinTech Powered By <span className="sub-text"> XDC Network</span>
           </h1>
           <p className="aboutus-desc">
-          "Welcome to our innovative platform dedicated on transforming global services for banks and financial institutions. At Tradefinetch, we specialize in providing the latest advancements in technology by offering robust enterprise-level Web3 solutions.
+          Welcome to our innovative platform dedicated on transforming global services for banks and financial institutions. At Tradefinetch, we specialize in providing the latest advancements in technology by offering robust enterprise-level Web3 solutions.
           </p>
           {/* <Button className="aboutus-btn">Read More {">>"}</Button> */}
         </div>
@@ -193,7 +188,7 @@ const Home = () => {
               <img src={item.image} alt="" className="feature-img" />
               <h2 className="feature-title">{item.title}</h2>
               <p className="feature-desc">{item.desc}</p>
-              <p className="readmore">Read More</p>
+              {/* <p className="readmore">Read More</p> */}
             </div>
           ))}
         </div>
@@ -203,7 +198,7 @@ const Home = () => {
 
       <div id="choose" className="choose-section">
         <h1 className="choose-title">
-          Why Choose <span className="sub-text">Tradefintech</span>
+          Why Choose <span className="sub-text">TradeFinTech</span>
         </h1>
         <div className="chooseus-container">
           <div className="chooseus-left">
@@ -258,6 +253,7 @@ const Home = () => {
 
       {/* contact us */}
 
+      {/* contact us */}
       <div id="contact" className="contact-section">
         <h1 className="contact-title">
           Contact <span className="sub-text">Us</span>
@@ -308,32 +304,47 @@ const Home = () => {
               value={formData.message}
               onChange={handleChange}
             />
-            {/* <div className="form-control">
-            <p>Investment capacity in FXD</p>
-            <input
-              type="text"
-              className="input"
-              placeholder="Enter Your Answer"
-            />
-          </div> */}
-          {/* <div className="form-control">
-            <p>XDC addess to whitelist to allow minting of FXD</p>
-            <input
-              type="text"
-              className="input"
-              placeholder="Enter Your Answer"
-            />
-          </div> */}
           </div>
-          <Button type="button" onClick={handleSubmit} className="submit-btn">Submit</Button>
+          <Button type="submit" className="submit-btn">
+            Submit
+          </Button>
         </form>
+
+        {/* Display submitted data
+        {submittedData && (
+          <div className="submitted-data">
+            <h2>Submitted Data</h2>
+            <p>
+              <strong>Name:</strong> {submittedData.name}
+            </p>
+            <p>
+              <strong>Email:</strong> {submittedData.email}
+            </p>
+            <p>
+              <strong>Number:</strong> {submittedData.number}
+            </p>
+            <p>
+              <strong>Message:</strong> {submittedData.message}
+            </p>
+          </div>
+        )} */}
       </div>
 
       {/* footer */}
 
-      <div className="footer">
-        <p>Copyright@ 2023 <a href=" TradeFinex.org">TradeFinex</a>. All Rights Reserved.</p>
-      </div>
+<div className="footer">
+  <p className="footer_p">
+    <span>TradeFinTech Ltd</span><br />
+    <span>Address: </span>N1002-N1003 Emirates Financial Towers, DIFC, Dubai, UAE<br />
+    <span>Email ID:</span> <a href="mailto:info@tradefinex.org">info@tradefinex.org</a><br />
+    <span>Telephone:</span>04 394 9900 <br />
+    
+ </p>
+ <p className="copyright">
+    Copyright@ 2023 <a href=" TradeFinex.org">TradeFinex</a>. All Rights Reserved.
+  </p>
+  </div>
+     
     </div>
   );
   };
