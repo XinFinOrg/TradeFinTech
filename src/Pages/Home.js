@@ -16,6 +16,11 @@ import {
 } from "../assets/images";
 
 const featureArray = [
+   {
+    title: "Trade Finance Digitization",
+    image: feature4,
+    desc: "Experience significant benefits, including faster & more transparent transactions, reduced risk of errors, improved compliance, and increased overall efficiency.",
+  },
   {
     title: "Cross-Border Instant Payment Settlements",
     image: feature1,
@@ -31,11 +36,7 @@ const featureArray = [
     image: feature3,
     desc: "We understand the critical importance of security and compliance in the financial sector.",
   },
-  // {
-  //   title: "Expert Support",
-  //   image: feature4,
-  //   desc: "Our team of dedicated experts is here to provide comprehensive support at every stage...",
-  // },
+ 
 ];
 
 const Home = () => {
